@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://summon.news.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="StudentsSummonException" type="tns:StudentsSummonException"/>
+
+<xs:element name="createSummoning" type="tns:createSummoning"/>
+
+<xs:element name="createSummoningResponse" type="tns:createSummoningResponse"/>
+
+<xs:element name="deleteSummoning" type="tns:deleteSummoning"/>
+
+<xs:element name="deleteSummoningResponse" type="tns:deleteSummoningResponse"/>
+
+<xs:element name="readSummoning" type="tns:readSummoning"/>
+
+<xs:element name="readSummoningResponse" type="tns:readSummoningResponse"/>
+
+<xs:element name="updateSummoning" type="tns:updateSummoning"/>
+
+<xs:element name="updateSummoningResponse" type="tns:updateSummoningResponse"/>
+
+<xs:complexType name="updateSummoning">
+<xs:sequence>
+<xs:element name="s" type="tns:summoning" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="summoning">
+<xs:sequence>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="level" type="xs:int"/>
+<xs:element name="owner" type="xs:string" minOccurs="0"/>
+<xs:element name="promo" type="tns:promo" minOccurs="0"/>
+<xs:element name="student" type="xs:string" minOccurs="0"/>
+<xs:element name="valid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promo">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSummoningResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="StudentsSummonException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readSummoning">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readSummoningResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:summoning" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createSummoning">
+<xs:sequence>
+<xs:element name="s" type="tns:summoning" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createSummoningResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteSummoning">
+<xs:sequence>
+<xs:element name="s" type="tns:summoning" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteSummoningResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

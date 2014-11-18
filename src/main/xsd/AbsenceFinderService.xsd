@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://absence.news.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="TeacherAbsenceException" type="tns:TeacherAbsenceException"/>
+
+<xs:element name="findAbsenceById" type="tns:findAbsenceById"/>
+
+<xs:element name="findAbsenceByIdResponse" type="tns:findAbsenceByIdResponse"/>
+
+<xs:element name="getAllAbsenceReferences" type="tns:getAllAbsenceReferences"/>
+
+<xs:element name="getAllAbsenceReferencesResponse" type="tns:getAllAbsenceReferencesResponse"/>
+
+<xs:complexType name="getAllAbsenceReferences">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllAbsenceReferencesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="TeacherAbsenceException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAbsenceById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAbsenceByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:absence" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="absence">
+<xs:sequence>
+<xs:element name="from" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="reason" type="xs:string" minOccurs="0"/>
+<xs:element name="teacher" type="xs:string" minOccurs="0"/>
+<xs:element name="until" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

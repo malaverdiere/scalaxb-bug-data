@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://alarms.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="AlarmException" type="tns:AlarmException"/>
+
+<xs:element name="findAlarmById" type="tns:findAlarmById"/>
+
+<xs:element name="findAlarmByIdResponse" type="tns:findAlarmByIdResponse"/>
+
+<xs:element name="getADayAlarms" type="tns:getADayAlarms"/>
+
+<xs:element name="getADayAlarmsResponse" type="tns:getADayAlarmsResponse"/>
+
+<xs:element name="getAlarmsByBreakTimeId" type="tns:getAlarmsByBreakTimeId"/>
+
+<xs:element name="getAlarmsByBreakTimeIdResponse" type="tns:getAlarmsByBreakTimeIdResponse"/>
+
+<xs:element name="getAllAlarmIds" type="tns:getAllAlarmIds"/>
+
+<xs:element name="getAllAlarmIdsResponse" type="tns:getAllAlarmIdsResponse"/>
+
+<xs:complexType name="getAlarmsByBreakTimeId">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAlarmsByBreakTimeIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alarm" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alarm">
+<xs:sequence>
+<xs:element name="breakTime" type="tns:breakTime" minOccurs="0"/>
+<xs:element name="dateRing" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="kind" type="xs:string" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="sound" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="breakTime">
+<xs:sequence>
+<xs:element name="building" type="xs:string" minOccurs="0"/>
+<xs:element name="days" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="kind" type="xs:string" minOccurs="0"/>
+<xs:element name="promos" type="tns:promo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promo">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlarmException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAlarmById">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAlarmByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alarm" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllAlarmIds">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllAlarmIdsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getADayAlarms">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getADayAlarmsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alarm" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

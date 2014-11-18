@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://calendar.technical.jSeduite.modalis.i3s.unice.fr/">
+
+<xs:element name="ICalReaderException" type="tns:ICalReaderException"/>
+
+<xs:element name="getContent" type="tns:getContent"/>
+
+<xs:element name="getContentResponse" type="tns:getContentResponse"/>
+
+<xs:element name="getNDays" type="tns:getNDays"/>
+
+<xs:element name="getNDaysResponse" type="tns:getNDaysResponse"/>
+
+<xs:element name="getNow" type="tns:getNow"/>
+
+<xs:element name="getNowResponse" type="tns:getNowResponse"/>
+
+<xs:element name="getToday" type="tns:getToday"/>
+
+<xs:element name="getTodayResponse" type="tns:getTodayResponse"/>
+
+<xs:complexType name="getContent">
+<xs:sequence>
+<xs:element name="calendar" type="xs:anyURI" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getContentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:calendarEvent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calendarEvent">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="end" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="location" type="xs:string" minOccurs="0"/>
+<xs:element name="start" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="summary" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ICalReaderException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNDays">
+<xs:sequence>
+<xs:element name="calendar" type="xs:anyURI" minOccurs="0"/>
+<xs:element name="n" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNDaysResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:calendarEvent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getToday">
+<xs:sequence>
+<xs:element name="calendar" type="xs:anyURI" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTodayResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:calendarEvent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNow">
+<xs:sequence>
+<xs:element name="calendar" type="xs:anyURI" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNowResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:calendarEvent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
